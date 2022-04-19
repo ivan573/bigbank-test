@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <GameInterface v-if="gameId" />
+    <GameButton v-else class="start-button" text="New game" @click="init" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GameInterface from '@/components/GameInterface.vue'
+import GameButton from '@/components/ui/GameButton.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    GameInterface,
+    GameButton
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    gameId() {
+      return this.$store.state.gameData.gameId
+    }
+  },
+  methods: {
+    init() {
+      this.$store.dispatch('initGame')
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+  .start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 </style>
