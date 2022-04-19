@@ -39,13 +39,14 @@ const checkStatus = (response) => {
   }
 }
 
-export default (requestType, gameId, itemId) => {
+export default async (requestType, gameId, itemId) => {
   const { url, method } = getRequestData(requestType, gameId, itemId)
 
-  return fetch(url, { method })
-    .then(checkStatus)
-    .then(res => res.json())
-    .catch(err => {
-      throw new Error(err)
-    })
+  try {
+    const response = await fetch(url, { method })
+    checkStatus(response)
+    return response.json()
+  } catch (err) {
+    throw new Error(err)
+  }
 }

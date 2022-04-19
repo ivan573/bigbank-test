@@ -1,10 +1,10 @@
 <template>
   <ul class="game-quests">
     <li v-for="quest in quests" class="game-quests__quest" :key="quest.adId" @click="handleQuestClick(quest.adId)">
-      <p>{{ quest.message }}</p>
-      <p>Reward: {{ quest.reward }}</p>
-      <p>Difficulty: {{ quest.probability }}</p>
-      <p>Expires in {{ quest.expiresIn }} turns</p>
+      <p class="game-quests__quest-text">{{ quest.message }}</p>
+      <p class="game-quests__quest-text">Reward: {{ quest.reward }}</p>
+      <p class="game-quests__quest-text">Difficulty: {{ quest.probability }}</p>
+      <p class="game-quests__quest-text">Turns before expiration: {{ quest.expiresIn }}</p>
     </li>
   </ul>
 </template>
@@ -36,7 +36,7 @@ export default {
     &__quest {
       padding: 8px;
       width: calc((100% - $gap) / 2);
-      border: 1px solid black;
+      border: $border;
       border-radius: 8px;
       box-sizing: border-box;
       cursor: pointer;
@@ -46,6 +46,11 @@ export default {
       &:hover {
         transform: scale(1.2);
       }
+    }
+
+    &__quest-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 </style>

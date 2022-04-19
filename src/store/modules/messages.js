@@ -2,14 +2,14 @@ import api, { RequestType } from '@/api'
 
 const getInitialState = () => ({
   messages: [],
-  success: null,
-  message: null
+  message: null,
+  activeMessage: null,
+  isLoading: false
 })
 
 export default {
   namespaced: true,
   state: getInitialState(),
-  getters: {},
   mutations: {
     updateMessages(state, newMessages) {
       state.messages = newMessages
@@ -18,23 +18,32 @@ export default {
       Object.assign(state, result)
     },
     discardMessageResult(state) {
-      state.success = null
       state.message = null
+    },
+    updateActiveMessage(state, newActiveMessageId) {
+      state.activeMessage = state.messages.find(message => message.adId === newActiveMessageId)
+    },
+    discardActiveMessage(state) {
+      state.activeMessage = null
     },
     discardState(state) {
       Object.assign(state, getInitialState())
+    },
+    updateLoadingState(state, loadingState) {
+      state.isLoading = loadingState
     }
   },
   actions: {
     async fetchMessages({ rootState, commit }) {
+      commit('updateLoadingState', true)
       const messages = await api(RequestType.GET_MESSAGES, rootState.gameData.gameId)
       commit('updateMessages', messages)
+      commit('updateLoadingState', false)
     },
     async solveMessage({ rootState, commit, dispatch }, messageId) {
-      const result = await api(RequestType.SOLVE_MESSAGE, rootState.gameData.gameId, messageId)
-      const { gold, highScore, lives, message, score, success, turn } = result
-      commit('updateMessageResult', { message, success })
-      commit('gameData/updateData', { gold, highScore, lives, score, turn }, { root: true })
+      const { gold, lives, message, score, turn } = await api(RequestType.SOLVE_MESSAGE, rootState.gameData.gameId, messageId)
+      commit('updateMessageResult', { message })
+      commit('gameData/updateData', { gold, lives, score, turn }, { root: true })
       lives && dispatch('fetchMessages')
     }
   }

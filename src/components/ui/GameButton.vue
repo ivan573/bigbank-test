@@ -3,8 +3,9 @@
     class="game-button"
     :class="{'game-button_primary': primary}"
     v-on="$listeners"
+    @click="handleButtonClick"
   >
-    {{ text }}
+    <span class="game-button__text">{{ text }}</span>
   </button>
 </template>
 
@@ -13,7 +14,14 @@ export default {
   name: 'GameButton',
   props: {
     text: String,
+    linkTo: String,
     primary: Boolean
+  },
+  methods: {
+    handleButtonClick() {
+      const path = this.linkTo
+      path && path !== this.$route.path && this.$router.push({ path })
+    }
   }
 }
 </script>
@@ -24,7 +32,6 @@ export default {
     border: none;
     border-radius: 4px;
     background-color: black;
-    color: white;
     cursor: pointer;
     display: block;
 
@@ -32,9 +39,17 @@ export default {
       opacity: 0.5;
     }
 
+    &__text {
+      text-decoration: none;
+      color: white;
+    }
+
     &_primary {
-      border: 1px solid black;
+      border: $border;
       background-color: white;
+    }
+
+    &_primary &__text {
       color: black;
     }
   }

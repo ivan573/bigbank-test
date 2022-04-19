@@ -6,8 +6,8 @@ const getInitialState = () => ({
   gold: 0,
   level: 0,
   score: 0,
-  highScore: 0,
-  turn: 0
+  turn: 0,
+  isLoading: false
 })
 
 export default {
@@ -19,12 +19,17 @@ export default {
     },
     discardState(state) {
       Object.assign(state, getInitialState())
+    },
+    updateLoadingState(state, loadingState) {
+      state.isLoading = loadingState
     }
   },
   actions: {
     async fetchGameData({ commit }) {
-      const data = await api(RequestType.START)
-      commit('updateData', data)
+      commit('updateLoadingState', true)
+      const { gameId, gold, level, lives, score, turn } = await api(RequestType.START)
+      commit('updateData', { gameId, gold, level, lives, score, turn })
+      commit('updateLoadingState', false)
     }
   }
 }

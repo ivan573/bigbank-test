@@ -1,10 +1,16 @@
 <template>
   <div class="modal-window">
-    <h3 v-if="title" class="modal-window__text modal-window__text_title">{{ title }}</h3>
+    <h3 v-if="title" class="modal-window__title">{{ title }}</h3>
     <p class="modal-window__text">{{ data.message }}</p>
-    <p v-if="data.reward" class="modal-window__text">Reward: {{ data.reward }}</p>
-    <p v-if="data.probability" class="modal-window__text">Difficulty: {{ data.probability }}</p>
-    <p v-if="data.expiresIn" class="modal-window__text">Turns before expiration: {{ data.expiresIn }}</p>
+    <template v-if="isQuest">
+      <p class="modal-window__text">Reward: {{ data.reward }}</p>
+      <p class="modal-window__text">Difficulty: {{ data.probability }}</p>
+      <p class="modal-window__text">Turns before expiration: {{ data.expiresIn }}</p>
+    </template>
+    <template v-if="isPurchase">
+      <p class="modal-window__text">{{ data.name }}</p>
+      <p class="modal-window__text">Price: {{ data.cost }}</p>
+    </template>
     <div class="modal-window__buttons">
       <GameButton
         v-for="button in buttons"
@@ -33,28 +39,39 @@ export default {
     data: Object
   },
   computed: {
+    isQuest() {
+      return this.type === ModalWindowType.QUEST
+    },
+    isPurchase() {
+      return this.type === ModalWindowType.PURCHASE_ITEM
+    },
     title() {
-      if (this.type === ModalWindowType.QUEST) {
-        return 'Try this quest?'
-      } else {
-        return null
+      switch (this.type) {
+        case ModalWindowType.QUEST:
+          return 'Try this quest?'
+        case ModalWindowType.PURCHASE_ITEM:
+          return 'Buy this item?'
+        default:
+          return null
       }
     },
     buttons() {
-      if (this.type === ModalWindowType.QUEST) {
-        return [
-          { text: 'Yes', action: this.confirm },
-          { text: 'No', action: this.closeModalWindow }
-        ]
+      switch (this.type) {
+        case ModalWindowType.QUEST:
+        case ModalWindowType.PURCHASE_ITEM:
+          return [
+            { text: 'Yes', action: this.confirm },
+            { text: 'No', action: this.close }
+          ]
+        case ModalWindowType.QUEST_RESULT:
+        case ModalWindowType.PURCHASE_RESULT:
+        case ModalWindowType.GAME_OVER:
+          return [
+            { text: 'OK', action: this.close }
+          ]
+        default:
+          return []
       }
-
-      if (this.type === ModalWindowType.QUEST_RESULT || ModalWindowType.GAME_OVER) {
-        return [
-          { text: 'OK', action: this.closeModalWindow }
-        ]
-      }
-
-      return []
     }
   },
   mounted() {
@@ -66,7 +83,7 @@ export default {
     overlay.remove()
   },
   methods: {
-    closeModalWindow() {
+    close() {
       this.$emit('close', this.type)
     },
     confirm() {
@@ -86,7 +103,7 @@ export default {
     max-width: 80vw;
     z-index: 2;
     background-color: white;
-    border: 2px solid black;
+    border: $modalBorder;
     border-radius: 8px;
 
     &__buttons {
