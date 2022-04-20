@@ -13,6 +13,15 @@ const getInitialState = () => ({
 export default {
   namespaced: true,
   state: getInitialState(),
+  getters: {
+    data: state => ({
+      lives: state.lives,
+      gold: state.gold,
+      level: state.level,
+      score: state.score,
+      turn: state.turn
+    })
+  },
   mutations: {
     updateData(state, newData) {
       Object.assign(state, newData)

@@ -45,6 +45,10 @@ export default {
       commit('updateMessageResult', { message })
       commit('gameData/updateData', { gold, lives, score, turn }, { root: true })
       lives && dispatch('fetchMessages')
+      if (lives) {
+        dispatch('fetchMessages')
+        dispatch('reputation/fetchReputation', null, { root: true })
+      }
     }
   }
 }

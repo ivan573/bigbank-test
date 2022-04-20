@@ -1,10 +1,10 @@
 <template>
   <ul class="game-items">
-      <li v-for="item in items" class="game-items__item" :key="item.id" @click="handleItemClick(item.id)">
-        <p class="game-items__item-data">{{ item.name }}</p>
-        <p class="game-items__item-data">Price: {{ item.cost }}</p>
-      </li>
-    </ul>
+    <li v-for="item in items" class="game-items__item" :key="item.id" @click="handleItemClick(item.id)">
+      <p class="game-items__item-data">{{ item.name }}</p>
+      <p class="game-items__item-data">Price: {{ item.cost }}</p>
+    </li>
+  </ul>
 </template>
 
 <script>

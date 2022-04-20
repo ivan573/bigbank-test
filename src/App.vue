@@ -7,13 +7,13 @@
       <GameButton text="Shop" :linkTo="shopRoute" primary />
       <GameButton text="Reputation" :linkTo="reputationRoute" primary />
     </nav>
-    <GameData v-if="!isRouteHome" :data="gameData" />
-    <router-view/>
+    <GameData v-if="!isRouteHome" :data="data" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { Route } from '@/const'
 import GameButton from '@/components/ui/GameButton.vue'
 import GameData from '@/components/GameData.vue'
@@ -34,22 +34,9 @@ export default {
   },
   computed: {
     ...mapState('gameData', {
-      gameId: state => state.gameId,
-      lives: state => state.lives,
-      gold: state => state.gold,
-      level: state => state.level,
-      score: state => state.score,
-      turn: state => state.turn
+      gameId: state => state.gameId
     }),
-    gameData() {
-      return {
-        lives: this.lives,
-        gold: this.gold,
-        level: this.level,
-        score: this.score,
-        turn: this.turn
-      }
-    },
+    ...mapGetters('gameData', ['data']),
     isRouteHome() {
       return this.$route.path === Route.HOME
     }

@@ -17,8 +17,9 @@ export default new Vuex.Store({
   actions: {
     async initGame({ dispatch }) {
       await dispatch('gameData/fetchGameData')
-      await dispatch('messages/fetchMessages')
-      await dispatch('shop/fetchShop')
+      dispatch('messages/fetchMessages')
+      dispatch('shop/fetchShop')
+      dispatch('reputation/fetchReputation')
     },
     endGame({ commit }) {
       commit('gameData/discardState')

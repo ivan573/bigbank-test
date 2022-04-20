@@ -1,11 +1,11 @@
 <template>
   <div class="game-data">
-      <span class="game-data__item">Lives: {{ data.lives }}</span>
-      <span class="game-data__item">Gold: {{ data.gold }}</span>
-      <span class="game-data__item">Level: {{ data.level }}</span>
-      <span class="game-data__item">Turn: {{ data.turn }}</span>
-      <span class="game-data__item">Score: {{ data.score }}</span>
-    </div>
+    <span class="game-data__item">Lives: {{ data.lives }}</span>
+    <span class="game-data__item">Gold: {{ data.gold }}</span>
+    <span class="game-data__item">Level: {{ data.level }}</span>
+    <span class="game-data__item">Turn: {{ data.turn }}</span>
+    <span class="game-data__item">Score: {{ data.score }}</span>
+  </div>
 </template>
 
 <script>

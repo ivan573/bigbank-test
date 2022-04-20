@@ -17,14 +17,14 @@ export default {
     updateShoppingSuccess(state, newShoppingSuccess) {
       state.shoppingSuccess = newShoppingSuccess
     },
+    discardShoppinSuccess(state) {
+      state.shoppingSuccess = null
+    },
     updateActiveItem(state, newItemId) {
       state.activeItem = state.items.find(item => item.id === newItemId)
     },
     discardActiveItem(state) {
       state.activeItem = null
-    },
-    discardShoppinSuccess(state) {
-      state.shoppingSuccess = null
     },
     addItemToPossessed(state, newItem) {
       state.posessedItems.push(newItem)
