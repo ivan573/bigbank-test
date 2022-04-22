@@ -9,6 +9,7 @@
     </nav>
     <GameData class="app__game-data" v-if="!isRouteHome" :data="data" />
     <router-view />
+    <div v-if="isOverlayShown" class="app__overlay" />
   </div>
 </template>
 
@@ -29,7 +30,9 @@ export default {
       homeRoute: Route.HOME,
       questsRoute: Route.GAME,
       shopRoute: Route.SHOP,
-      reputationRoute: Route.REPUTATION
+      reputationRoute: Route.REPUTATION,
+      isOverlayShown: false,
+      isScrollBlocked: false
     }
   },
   computed: {
@@ -39,6 +42,22 @@ export default {
     ...mapGetters('gameData', ['data']),
     isRouteHome() {
       return this.$route.path === Route.HOME
+    }
+  },
+  methods: {
+    showOverlay() {
+      this.isOverlayShown = true
+      document.body.style.overflow = 'hidden'
+    },
+    hideOverlay() {
+      this.isOverlayShown = false
+      document.body.style.overflow = ''
+    }
+  },
+  provide() {
+    return {
+      showOverlay: this.showOverlay,
+      hideOverlay: this.hideOverlay
     }
   }
 }
@@ -57,6 +76,16 @@ export default {
     display: flex;
     gap: 8px;
     justify-content: center;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.3;
   }
 }
 </style>

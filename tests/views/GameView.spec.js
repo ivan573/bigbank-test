@@ -48,8 +48,15 @@ describe('GameView.vue', () => {
     areQuestsLoading() { return areQuestsLoading }
   }
 
+  const provide = () => {
+    return {
+      showOverlay() {},
+      hideOverlay() {}
+    }
+  }
+
   it('matches snapshot', () => {
-    const wrapper = mount(GameView, { computed })
+    const wrapper = mount(GameView, { computed, provide })
     expect(wrapper.element).toMatchSnapshot()
   })
 
@@ -67,7 +74,8 @@ describe('GameView.vue', () => {
     const wrapper = mount(GameView, {
       localVue,
       store,
-      computed
+      computed,
+      provide
     })
     const questsElement = wrapper.find('.game__quests-list')
 
@@ -102,7 +110,8 @@ describe('GameView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.game__modal-window')
@@ -143,7 +152,8 @@ describe('GameView.vue', () => {
       computed: {
         ...computed,
         lives() { return 0 }
-      }
+      },
+      provide
     })
 
     const modalWindowElement = wrapper.find('.game__modal-window')
@@ -179,7 +189,8 @@ describe('GameView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.game__modal-window')
@@ -212,7 +223,8 @@ describe('GameView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.game__modal-window')
@@ -249,7 +261,8 @@ describe('GameView.vue', () => {
       store,
       router,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.game__modal-window')
@@ -268,7 +281,7 @@ describe('GameView.vue', () => {
         modalWindowType
       }
     }
-    const wrapper = mount(GameView, { data, computed })
+    const wrapper = mount(GameView, { data, computed, provide })
 
     expect(wrapper.vm.modalWindowData).toEqual(wrapper.vm.activeQuest)
   })
@@ -280,7 +293,7 @@ describe('GameView.vue', () => {
         modalWindowType
       }
     }
-    const wrapper = mount(GameView, { data, computed })
+    const wrapper = mount(GameView, { data, computed, provide })
 
     expect(wrapper.vm.modalWindowData).toEqual({ message: wrapper.vm.message })
   })
@@ -292,7 +305,7 @@ describe('GameView.vue', () => {
         modalWindowType
       }
     }
-    const wrapper = mount(GameView, { data, computed })
+    const wrapper = mount(GameView, { data, computed, provide })
 
     expect(wrapper.vm.modalWindowData).toEqual({ message: wrapper.vm.message })
   })

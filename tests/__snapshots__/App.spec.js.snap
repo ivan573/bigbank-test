@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GameButton.vue matches snapshot 1`] = `
+exports[`App.vue matches snapshot 1`] = `
 <div
   class="app"
   id="app"
@@ -54,6 +54,8 @@ exports[`GameButton.vue matches snapshot 1`] = `
       </span>
     </button>
   </nav>
+   
+  <!---->
    
   <!---->
    

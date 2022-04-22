@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import { Route } from '@/router/index'
 import App from '@/App.vue'
 
-describe('GameButton.vue', () => {
+describe('App.vue', () => {
   const gameId = 'gameId'
   const data = {
     gold: 0,
@@ -113,5 +113,26 @@ describe('GameButton.vue', () => {
     const gameDataElement = wrapper.find('.app__game-data')
 
     expect(gameDataElement.exists()).toBe(true)
+  })
+
+  it('displays and hides overlay when corresponding methods are called', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    localVue.use(VueRouter)
+
+    const store = new Vuex.Store({ modules: { gameData } })
+    const router = new VueRouter()
+
+    const wrapper = mount(App, { localVue, store, router })
+
+    await wrapper.vm.showOverlay()
+    let overlayElement = wrapper.find('.app__overlay')
+
+    expect(overlayElement.exists()).toBe(true)
+
+    await wrapper.vm.hideOverlay()
+    overlayElement = wrapper.find('.app__overlay')
+
+    expect(overlayElement.exists()).toBe(false)
   })
 })

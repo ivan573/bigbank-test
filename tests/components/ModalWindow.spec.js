@@ -19,24 +19,36 @@ describe('ModalWindow.vue', () => {
     name: 'Healing potion'
   }
 
+  const provide = () => {
+    return {
+      showOverlay() {},
+      hideOverlay() {}
+    }
+  }
+
   const questWrapper = mount(ModalWindow, {
-    propsData: { type: ModalWindowType.QUEST, data: questData }
+    propsData: { type: ModalWindowType.QUEST, data: questData },
+    provide
   })
 
   const questResultWrapper = mount(ModalWindow, {
-    propsData: { type: ModalWindowType.QUEST_RESULT, data: { message } }
+    propsData: { type: ModalWindowType.QUEST_RESULT, data: { message } },
+    provide
   })
 
   const purchaseWrapper = mount(ModalWindow, {
-    propsData: { type: ModalWindowType.PURCHASE_ITEM, data: itemData }
+    propsData: { type: ModalWindowType.PURCHASE_ITEM, data: itemData },
+    provide
   })
 
   const purchaseResultWrapper = mount(ModalWindow, {
-    propsData: { type: ModalWindowType.PURCHASE_RESULT, data: { message } }
+    propsData: { type: ModalWindowType.PURCHASE_RESULT, data: { message } },
+    provide
   })
 
   const gameOverWrapper = mount(ModalWindow, {
-    propsData: { type: ModalWindowType.GAME_OVER, data: { message } }
+    propsData: { type: ModalWindowType.GAME_OVER, data: { message } },
+    provide
   })
 
   it('matches snapshot', () => {
@@ -144,5 +156,21 @@ describe('ModalWindow.vue', () => {
     gameOverButtonElement.trigger('click')
     expect(gameOverWrapper.emitted().close.length).toBe(1)
     expect(gameOverWrapper.emitted().close[0]).toEqual([ModalWindowType.GAME_OVER])
+  })
+
+  it('calls the injected functions when created and destroyed', () => {
+    const showOverlay = jest.fn()
+    const hideOverlay = jest.fn()
+
+    const wrapper = mount(ModalWindow, {
+      propsData: { type: ModalWindowType.QUEST, data: questData },
+      provide: { showOverlay, hideOverlay }
+    })
+
+    expect(showOverlay).toHaveBeenCalled()
+
+    wrapper.destroy()
+
+    expect(hideOverlay).toHaveBeenCalled()
   })
 })

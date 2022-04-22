@@ -25,10 +25,7 @@
 
 <script>
 import { ModalWindowType } from '@/const'
-import { createOverlay } from '@/utils'
 import GameButton from '@/components/ui/GameButton.vue'
-
-const overlay = createOverlay()
 
 export default {
   name: 'ModalWindow',
@@ -76,12 +73,10 @@ export default {
     }
   },
   mounted() {
-    document.body.style.overflow = 'hidden'
-    document.body.appendChild(overlay)
+    this.showOverlay()
   },
   destroyed() {
-    document.body.style.overflow = ''
-    overlay.remove()
+    this.hideOverlay()
   },
   methods: {
     close() {
@@ -90,7 +85,8 @@ export default {
     confirm() {
       this.$emit('confirm', this.type)
     }
-  }
+  },
+  inject: ['showOverlay', 'hideOverlay']
 }
 </script>
 

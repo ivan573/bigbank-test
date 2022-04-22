@@ -36,8 +36,15 @@ describe('ShopView.vue', () => {
     shoppingSuccess() { return shoppingSuccess }
   }
 
+  const provide = () => {
+    return {
+      showOverlay() {},
+      hideOverlay() {}
+    }
+  }
+
   it('matches snapshot', () => {
-    const wrapper = mount(ShopView, { computed })
+    const wrapper = mount(ShopView, { computed, provide })
     expect(wrapper.element).toMatchSnapshot()
   })
 
@@ -62,7 +69,8 @@ describe('ShopView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const itemsElement = wrapper.find('.shop__available-items-list')
@@ -97,7 +105,8 @@ describe('ShopView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.shop__modal-window')
@@ -135,7 +144,8 @@ describe('ShopView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.shop__modal-window')
@@ -171,7 +181,8 @@ describe('ShopView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.shop__modal-window')
@@ -206,7 +217,8 @@ describe('ShopView.vue', () => {
       localVue,
       store,
       data,
-      computed
+      computed,
+      provide
     })
 
     const modalWindowElement = wrapper.find('.shop__modal-window')
@@ -224,7 +236,7 @@ describe('ShopView.vue', () => {
         modalWindowType
       }
     }
-    const wrapper = mount(ShopView, { data, computed })
+    const wrapper = mount(ShopView, { data, computed, provide })
 
     expect(wrapper.vm.modalWindowData).toEqual(wrapper.vm.activeItem)
   })
@@ -236,7 +248,7 @@ describe('ShopView.vue', () => {
         modalWindowType
       }
     }
-    const wrapper = mount(ShopView, { data, computed })
+    const wrapper = mount(ShopView, { data, computed, provide })
 
     expect(wrapper.vm.modalWindowData).toEqual({ message: 'You have purchased the item' })
   })
@@ -248,7 +260,7 @@ describe('ShopView.vue', () => {
         modalWindowType
       }
     }
-    const wrapper = mount(ShopView, { data, computed: { ...computed, shoppingSuccess() { return false } } })
+    const wrapper = mount(ShopView, { data, computed: { ...computed, shoppingSuccess() { return false } }, provide })
 
     expect(wrapper.vm.modalWindowData).toEqual({ message: 'You cannot purchase this item' })
   })
