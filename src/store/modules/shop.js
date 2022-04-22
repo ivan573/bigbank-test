@@ -17,7 +17,7 @@ export default {
     updateShoppingSuccess(state, newShoppingSuccess) {
       state.shoppingSuccess = newShoppingSuccess
     },
-    discardShoppinSuccess(state) {
+    discardShoppingSuccess(state) {
       state.shoppingSuccess = null
     },
     updateActiveItem(state, newItemId) {

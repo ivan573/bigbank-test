@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShopView.vue matches snapshot 1`] = `
+<div
+  class="shop"
+>
+  <!---->
+   
+  <div
+    class="shop__available-items"
+  >
+    <h2
+      class="shop__available-items-title"
+    >
+      Available items
+    </h2>
+     
+    <ul
+      class="game-items shop__available-items-list"
+    >
+      <li
+        class="game-items__item"
+      >
+        <p
+          class="game-items__item-data"
+        >
+          Healing potion
+        </p>
+         
+        <p
+          class="game-items__item-data"
+        >
+          Price: 50
+        </p>
+      </li>
+      <li
+        class="game-items__item"
+      >
+        <p
+          class="game-items__item-data"
+        >
+          Book of Tricks
+        </p>
+         
+        <p
+          class="game-items__item-data"
+        >
+          Price: 100
+        </p>
+      </li>
+      <li
+        class="game-items__item"
+      >
+        <p
+          class="game-items__item-data"
+        >
+          Book of Megatricks
+        </p>
+         
+        <p
+          class="game-items__item-data"
+        >
+          Price: 300
+        </p>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</div>
+`;

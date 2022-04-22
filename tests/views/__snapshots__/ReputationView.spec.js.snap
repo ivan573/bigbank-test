@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReputationView.vue matches snapshot 1`] = `
+<div
+  class="reputation"
+>
+  <h2
+    class="reputation__title"
+  >
+    Your reputation
+  </h2>
+   
+  <ul
+    class="reputation__list"
+  >
+    <li
+      class="reputation__list-item"
+    >
+      
+     people: 1.5
+   
+    </li>
+    <li
+      class="reputation__list-item"
+    >
+      
+     state: 1
+   
+    </li>
+    <li
+      class="reputation__list-item"
+    >
+      
+     underworld: 1
+   
+    </li>
+  </ul>
+</div>
+`;

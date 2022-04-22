@@ -1,7 +1,7 @@
 <template>
   <div class="modal-window">
     <h3 v-if="title" class="modal-window__title">{{ title }}</h3>
-    <p class="modal-window__text">{{ data.message }}</p>
+    <p v-if="data.message" class="modal-window__text">{{ data.message }}</p>
     <template v-if="isQuest">
       <p class="modal-window__text">Reward: {{ data.reward }}</p>
       <p class="modal-window__text">Difficulty: {{ data.probability }}</p>
@@ -14,6 +14,7 @@
     <div class="modal-window__buttons">
       <GameButton
         v-for="button in buttons"
+        class="modal-window__button"
         :text="button.text"
         :key="button.text"
         @click="button.action"

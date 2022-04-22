@@ -2,10 +2,11 @@
   <div class="shop">
     <p v-if="posessedItems.length" class="shop__posessed-items">Previously bought: {{ posessedItems.join(', ') }}</p>
     <div class="shop__available-items">
-      <h2 class="game__available-items-title">Available items</h2>
+      <h2 class="shop__available-items-title">Available items</h2>
       <GameItems :items="items" class="shop__available-items-list" @itemClick="handleItemClick" />
       <ModalWindow
         v-if="modalWindowType"
+        class="shop__modal-window"
         :type="modalWindowType"
         :data="modalWindowData"
         @close="handleModalWindowClose"
@@ -62,7 +63,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('shop', ['updateActiveItem', 'discardActiveItem', 'discardShoppinSuccess']),
+    ...mapMutations('shop', ['updateActiveItem', 'discardActiveItem', 'discardShoppingSuccess']),
     ...mapActions('shop', ['fetchShop', 'purchaseItem']),
     handleItemClick(id) {
       this.updateActiveItem(id)
@@ -80,7 +81,7 @@ export default {
           this.discardActiveItem()
           break
         case ModalWindowType.PURCHASE_RESULT:
-          this.discardShoppinSuccess()
+          this.discardShoppingSuccess()
           break
       }
     }

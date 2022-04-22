@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameQuests.vue matches snapshot 1`] = `
+<ul
+  class="game-quests"
+>
+  <li
+    class="game-quests__quest"
+  >
+    <p
+      class="game-quests__quest-text"
+    >
+      Help Menes Rennold to transport a magic turnips to grassland in Everdrone
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Reward: 15
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Difficulty: Piece of cake
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Turns before expiration: 4
+    </p>
+  </li>
+  <li
+    class="game-quests__quest"
+  >
+    <p
+      class="game-quests__quest-text"
+    >
+      Help Viriato Ásmundsdóttir to sell an unordinary water on the local market
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Reward: 10
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Difficulty: Walk in the park
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Turns before expiration: 5
+    </p>
+  </li>
+  <li
+    class="game-quests__quest"
+  >
+    <p
+      class="game-quests__quest-text"
+    >
+      Help Chingis Chandler to fix their horse
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Reward: 8
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Difficulty: Quite likely
+    </p>
+     
+    <p
+      class="game-quests__quest-text"
+    >
+      Turns before expiration: 3
+    </p>
+  </li>
+</ul>
+`;

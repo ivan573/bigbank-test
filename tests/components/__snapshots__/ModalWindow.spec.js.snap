@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalWindow.vue matches snapshot 1`] = `
+<div
+  class="modal-window"
+>
+  <h3
+    class="modal-window__title"
+  >
+    Try this quest?
+  </h3>
+   
+  <p
+    class="modal-window__text"
+  >
+    Help Menes Rennold to transport a magic turnips to grassland in Everdrone
+  </p>
+   
+  <p
+    class="modal-window__text"
+  >
+    Reward: 15
+  </p>
+   
+  <p
+    class="modal-window__text"
+  >
+    Difficulty: Piece of cake
+  </p>
+   
+  <p
+    class="modal-window__text"
+  >
+    Turns before expiration: 4
+  </p>
+   
+  <!---->
+   
+  <div
+    class="modal-window__buttons"
+  >
+    <button
+      class="game-button modal-window__button"
+    >
+      <span
+        class="game-button__text"
+      >
+        Yes
+      </span>
+    </button>
+    <button
+      class="game-button modal-window__button"
+    >
+      <span
+        class="game-button__text"
+      >
+        No
+      </span>
+    </button>
+  </div>
+</div>
+`;

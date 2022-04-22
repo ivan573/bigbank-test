@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameData.vue matches snapshot 1`] = `
+<div
+  class="game-data"
+>
+  <span
+    class="game-data__item"
+  >
+    Lives: 3
+  </span>
+   
+  <span
+    class="game-data__item"
+  >
+    Gold: 0
+  </span>
+   
+  <span
+    class="game-data__item"
+  >
+    Level: 0
+  </span>
+   
+  <span
+    class="game-data__item"
+  >
+    Turn: 0
+  </span>
+   
+  <span
+    class="game-data__item"
+  >
+    Score: 0
+  </span>
+</div>
+`;

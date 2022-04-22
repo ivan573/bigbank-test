@@ -6,9 +6,11 @@ import GameView from '@/views/GameView.vue'
 import ShopView from '@/views/ShopView.vue'
 import ReputationView from '@/views/ReputationView.vue'
 
-Vue.use(VueRouter)
+if (process.env.NODE_ENV !== 'test') {
+  Vue.use(VueRouter)
+}
 
-const routes = [
+export const routes = [
   {
     path: Route.HOME,
     name: 'home',

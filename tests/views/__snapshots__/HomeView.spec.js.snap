@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeView.vue matches snapshot 1`] = `
+<div
+  class="home"
+>
+  <button
+    class="game-button home__start-button"
+  >
+    <span
+      class="game-button__text"
+    >
+      New game
+    </span>
+  </button>
+</div>
+`;

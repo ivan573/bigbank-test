@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameButton.vue matches snapshot 1`] = `
+<button
+  class="game-button"
+>
+  <span
+    class="game-button__text"
+  >
+    text
+  </span>
+</button>
+`;

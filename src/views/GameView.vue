@@ -10,6 +10,7 @@
     </div>
     <ModalWindow
       v-if="modalWindowType"
+      class="game__modal-window"
       :type="modalWindowType"
       :data="modalWindowData"
       @close="handleModalWindowClose"
