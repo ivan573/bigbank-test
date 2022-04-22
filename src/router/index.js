@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { Route } from '@/const'
 import HomeView from '@/views/HomeView.vue'
 import GameView from '@/views/GameView.vue'
 import ShopView from '@/views/ShopView.vue'
@@ -8,6 +7,13 @@ import ReputationView from '@/views/ReputationView.vue'
 
 if (process.env.NODE_ENV !== 'test') {
   Vue.use(VueRouter)
+}
+
+export const Route = {
+  HOME: '/',
+  GAME: '/game',
+  SHOP: '/shop',
+  REPUTATION: '/reputation'
 }
 
 export const routes = [

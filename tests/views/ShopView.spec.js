@@ -1,7 +1,8 @@
 import { mount, shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import { ModalWindowType, Route } from '@/const'
+import { ModalWindowType } from '@/const'
+import { Route } from '@/router/index'
 import ShopView from '@/views/ShopView.vue'
 
 describe('ShopView.vue', () => {

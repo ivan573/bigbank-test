@@ -11,7 +11,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { Route } from '@/const'
+import { Route } from '@/router/index'
 
 export default {
   name: 'ReputationView',

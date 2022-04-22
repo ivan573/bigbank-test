@@ -14,7 +14,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { Route } from '@/const'
+import { Route } from '@/router/index'
 import GameButton from '@/components/ui/GameButton.vue'
 import GameData from '@/components/GameData.vue'
 

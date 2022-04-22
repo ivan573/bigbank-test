@@ -21,7 +21,8 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
-import { Route, ModalWindowType } from '@/const'
+import { ModalWindowType } from '@/const'
+import { Route } from '@/router/index'
 import GameQuests from '@/components/GameQuests.vue'
 import ModalWindow from '@/components/ModalWindow.vue'
 

@@ -1,10 +1,3 @@
-export const Route = {
-  HOME: '/',
-  GAME: '/game',
-  SHOP: '/shop',
-  REPUTATION: '/reputation'
-}
-
 export const ModalWindowType = {
   QUEST: 'quest',
   QUEST_RESULT: 'questResult',

@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import { Route } from '@/const'
+import { Route } from '@/router/index'
 import HomeView from '@/views/HomeView.vue'
 
 describe('HomeView.vue', () => {

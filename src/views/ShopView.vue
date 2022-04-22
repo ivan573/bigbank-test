@@ -18,7 +18,8 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
-import { Route, ModalWindowType } from '@/const'
+import { ModalWindowType } from '@/const'
+import { Route } from '@/router/index'
 import GameItems from '@/components/GameItems.vue'
 import ModalWindow from '@/components/ModalWindow.vue'
 
@@ -41,8 +42,7 @@ export default {
       items: state => state.items,
       activeItem: state => state.activeItem,
       posessedItems: state => state.posessedItems,
-      shoppingSuccess: state => state.shoppingSuccess,
-      isLoading: state => state.isLoading
+      shoppingSuccess: state => state.shoppingSuccess
     }),
     modalWindowData() {
       switch (this.modalWindowType) {
@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     ...mapMutations('shop', ['updateActiveItem', 'discardActiveItem', 'discardShoppingSuccess']),
-    ...mapActions('shop', ['fetchShop', 'purchaseItem']),
+    ...mapActions('shop', ['purchaseItem']),
     handleItemClick(id) {
       this.updateActiveItem(id)
       this.modalWindowType = ModalWindowType.PURCHASE_ITEM

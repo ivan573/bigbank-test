@@ -1,6 +1,6 @@
 import { mount, shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import { Route } from '@/const'
+import { Route } from '@/router/index'
 import ReputationView from '@/views/ReputationView.vue'
 
 describe('ReputationView.vue', () => {

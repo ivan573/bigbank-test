@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Route } from '@/const'
+import { Route } from '@/router/index'
 import GameButton from '@/components/ui/GameButton.vue'
 
 export default {

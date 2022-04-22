@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import { Route } from '@/const'
+import { Route } from '@/router/index'
 import App from '@/App.vue'
 
 describe('GameButton.vue', () => {
