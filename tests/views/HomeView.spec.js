@@ -36,8 +36,8 @@ describe('HomeView.vue', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(actions.endGame).toHaveBeenCalledTimes(1)
-    expect(actions.initGame).toHaveBeenCalledTimes(1)
+    expect(actions.endGame).toHaveBeenCalled()
+    expect(actions.initGame).toHaveBeenCalled()
     expect(wrapper.vm.$route.path).toBe(Route.GAME)
   })
 })

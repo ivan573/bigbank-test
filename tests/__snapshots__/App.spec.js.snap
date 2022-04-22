@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameButton.vue matches snapshot 1`] = `
+<div
+  class="app"
+  id="app"
+>
+  <h1
+    class="app__title"
+  >
+    Dragons of Mugloar
+  </h1>
+   
+  <nav
+    class="app__navigation"
+  >
+    <button
+      class="game-button app__navigation-button game-button_primary"
+    >
+      <span
+        class="game-button__text"
+      >
+        Main menu
+      </span>
+    </button>
+     
+    <button
+      class="game-button app__navigation-button game-button_primary"
+    >
+      <span
+        class="game-button__text"
+      >
+        Quests
+      </span>
+    </button>
+     
+    <button
+      class="game-button app__navigation-button game-button_primary"
+    >
+      <span
+        class="game-button__text"
+      >
+        Shop
+      </span>
+    </button>
+     
+    <button
+      class="game-button app__navigation-button game-button_primary"
+    >
+      <span
+        class="game-button__text"
+      >
+        Reputation
+      </span>
+    </button>
+  </nav>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;

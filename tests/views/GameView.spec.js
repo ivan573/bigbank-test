@@ -73,7 +73,7 @@ describe('GameView.vue', () => {
     questsElement.vm.$emit('questClick', quests[0].adId)
 
     expect(wrapper.vm.modalWindowType).toBe(ModalWindowType.QUEST)
-    expect(updateActiveMessage).toHaveBeenCalledTimes(1)
+    expect(updateActiveMessage).toHaveBeenCalled()
     expect(updateActiveMessage).toHaveBeenCalledWith({}, quests[0].adId)
   })
 
@@ -110,8 +110,8 @@ describe('GameView.vue', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(solveMessage).toHaveBeenCalledTimes(1)
-    expect(discardActiveMessage).toHaveBeenCalledTimes(1)
+    expect(solveMessage).toHaveBeenCalled()
+    expect(discardActiveMessage).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(ModalWindowType.QUEST_RESULT)
   })
 
@@ -151,8 +151,8 @@ describe('GameView.vue', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(solveMessage).toHaveBeenCalledTimes(1)
-    expect(discardActiveMessage).toHaveBeenCalledTimes(1)
+    expect(solveMessage).toHaveBeenCalled()
+    expect(discardActiveMessage).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(ModalWindowType.GAME_OVER)
   })
 
@@ -186,7 +186,7 @@ describe('GameView.vue', () => {
     modalWindowElement.vm.$emit('close', modalWindowType)
 
     expect(wrapper.vm.modalWindowType).toBe(null)
-    expect(discardActiveMessage).toHaveBeenCalledTimes(1)
+    expect(discardActiveMessage).toHaveBeenCalled()
   })
 
   it('whenever modal window with quest result type emits close event, component updates modal window type and call discard mutation', async () => {
@@ -219,7 +219,7 @@ describe('GameView.vue', () => {
     modalWindowElement.vm.$emit('close', modalWindowType)
 
     expect(wrapper.vm.modalWindowType).toBe(null)
-    expect(discardMessageResult).toHaveBeenCalledTimes(1)
+    expect(discardMessageResult).toHaveBeenCalled()
   })
 
   it('whenever modal window with game over type emits close event, component calls end game action and redirects to root', async () => {
@@ -256,7 +256,7 @@ describe('GameView.vue', () => {
     modalWindowElement.vm.$emit('close', modalWindowType)
 
     expect(wrapper.vm.modalWindowType).toBe(null)
-    expect(endGame).toHaveBeenCalledTimes(1)
+    expect(endGame).toHaveBeenCalled()
     expect(wrapper.vm.$route.path).toBe(Route.HOME)
   })
 

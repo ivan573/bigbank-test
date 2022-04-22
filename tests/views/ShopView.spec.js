@@ -68,7 +68,7 @@ describe('ShopView.vue', () => {
 
     itemsElement.vm.$emit('itemClick', items[0].id)
 
-    expect(updateActiveItem).toHaveBeenCalledTimes(1)
+    expect(updateActiveItem).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(ModalWindowType.PURCHASE_ITEM)
   })
 
@@ -105,8 +105,8 @@ describe('ShopView.vue', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(purchaseItem).toHaveBeenCalledTimes(1)
-    expect(discardActiveItem).toHaveBeenCalledTimes(1)
+    expect(purchaseItem).toHaveBeenCalled()
+    expect(discardActiveItem).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(ModalWindowType.PURCHASE_RESULT)
   })
 
@@ -143,8 +143,8 @@ describe('ShopView.vue', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(purchaseItem).toHaveBeenCalledTimes(1)
-    expect(discardActiveItem).toHaveBeenCalledTimes(1)
+    expect(purchaseItem).toHaveBeenCalled()
+    expect(discardActiveItem).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(ModalWindowType.PURCHASE_RESULT)
   })
 
@@ -179,7 +179,7 @@ describe('ShopView.vue', () => {
 
     await wrapper.vm.$nextTick()
 
-    expect(discardActiveItem).toHaveBeenCalledTimes(1)
+    expect(discardActiveItem).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(null)
   })
 
@@ -212,7 +212,7 @@ describe('ShopView.vue', () => {
 
     modalWindowElement.vm.$emit('close', modalWindowType)
 
-    expect(discardShoppingSuccess).toHaveBeenCalledTimes(1)
+    expect(discardShoppingSuccess).toHaveBeenCalled()
     expect(wrapper.vm.modalWindowType).toBe(null)
   })
 

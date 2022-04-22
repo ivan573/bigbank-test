@@ -2,12 +2,12 @@
   <div id="app" class="app">
     <h1 class="app__title">Dragons of Mugloar</h1>
     <nav v-if="gameId" class="app__navigation">
-      <GameButton text="Main menu" :linkTo="homeRoute" primary />
-      <GameButton text="Quests" :linkTo="questsRoute" primary />
-      <GameButton text="Shop" :linkTo="shopRoute" primary />
-      <GameButton text="Reputation" :linkTo="reputationRoute" primary />
+      <GameButton class="app__navigation-button" text="Main menu" :linkTo="homeRoute" primary />
+      <GameButton class="app__navigation-button" text="Quests" :linkTo="questsRoute" primary />
+      <GameButton class="app__navigation-button" text="Shop" :linkTo="shopRoute" primary />
+      <GameButton class="app__navigation-button" text="Reputation" :linkTo="reputationRoute" primary />
     </nav>
-    <GameData v-if="!isRouteHome" :data="data" />
+    <GameData class="app__game-data" v-if="!isRouteHome" :data="data" />
     <router-view />
   </div>
 </template>
